@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #main{
+            width: 200px;
+            height: 186px;
+            margin: 100px auto;
+            position: relative;
+        }
+        #dir{
+            width: 200px;
+            height: 20px;
+            position: absolute;
+            top: 90px;
+            display: none;
+            /*background-color: pink;*/
+        }
+        #left,#right {
+            width: 20px;
+            height: 20px;
+            background-color: black;
+            opacity: 0.3;
+            line-height: 20px;
+            text-align: center;
+            cursor: pointer;
+        }
+        #left {
+            float: left;
+        }
+        #right {
+            float: right;
+        }
+        .fl {
+            position: absolute;
+            top:2px;
+            left: 5px;
+        }
+        .rt {
+            position: absolute;
+            top:2px;
+            right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <img src="images/00.jpg" alt="" id="img"/>
+        <div id="dir">
+            <span class="fl">&lt;</span>
+            <span class="rt">&gt;</span>
+            <div id="left"></div>
+            <div id="right"></div>
+        </div>
+    </div>
+    <script>
+        var left = document.getElementById("left");
+        var right = document.getElementById("right");
+        var main = document.getElementById("main");
+        var img = document.getElementById("img");
+        var dir = document.getElementById("dir");
+        var i= 0;
+        main.onmouseover =function(){
+            dir.style.display="block";
+        }
+        main.onmouseout =function(){
+            dir.style.display="none";
+        }
+        right.onclick = function(){
+            img.src="images/0"+i+".jpg";
+            i++;
+            if(i>9){
+                i=0;
+            }
+        }
+        var j=9;
+        left.onclick = function(){
+            img.src="images/0"+j+".jpg";
+            j--;
+            if(j<1){
+                j=9;
+            }
+        }
+    </script>
+</body>
+</html>
